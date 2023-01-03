@@ -200,7 +200,7 @@ void PrintArray2D(int[,] array)
 //34(1,0,0) 41(1,1,0)
 //27(0,0,1) 90(0,1,1)
 //26(1,0,1) 55(1,1,1)
-
+/*
 int[,,] array3D = new int[2, 2, 2];
 FillArray(array3D);
 PrintIndex(array3D);
@@ -234,10 +234,50 @@ void PrintIndex(int[,,] arr)
         }
     }
 }
-
+*/
 //Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 //Например, на выходе получается вот такой массив:
 //01 02 03 04
 //12 13 14 05
 //11 16 15 06
 //10 09 08 07
+/*
+int size = 4;
+int[,] table = new int[size, size];
+SpiralArray(table, size);
+PrintArray(table);
+
+
+void SpiralArray(int[,] array, int n)
+{
+    int i = 0, j = 0;
+    int value = 1;
+    for (int e = 0; e < n * n; e++)
+    {
+        int k = 0;
+        do { array[i, j++] = value++; } while (++k < n - 1);
+        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
+        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
+        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
+        ++i; ++j;
+        n = n < 2 ? 0 : n - 2;
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] < 10)
+            {
+                Console.Write("0" + array[i, j]);
+                Console.Write(" ");
+            }
+            else Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+*/
